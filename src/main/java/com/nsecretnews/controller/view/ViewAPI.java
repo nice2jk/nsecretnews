@@ -21,7 +21,8 @@ public class ViewAPI {
 	@Autowired
 	private ArticleService articleService;
 	
-	@RequestMapping(value="/", method = RequestMethod.GET)
+	
+	@RequestMapping(value={"/", "main"}, method = RequestMethod.GET)
 	public String getMain(Model model) {
 		System.out.println("Main");
 		
