@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.nsecretnews.dao.ArticleDAO">
+	
+	<select id="getArticleListForMain" resultType="java.util.HashMap">
+		SELECT A.aid, A.title, A.vcount, A.ctime, COUNT(B.cid) AS count
+		FROM article AS A LEFT OUTER JOIN comments AS B ON A.aid = B.aid		
+		GROUP BY A.aid 
+		ORDER BY A.aid DESC
+		LIMIT 0, 10
+	</select>
+	
+	<select id="getArticleList" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+		SELECT A.aid, A.title, A.vcount, A.ctime, COUNT(B.cid) AS count
+		FROM article AS A LEFT OUTER JOIN comments AS B ON A.aid = B.aid
+		<if test="search != null and search != ''">
+			WHERE title LIKE '%${search}%'
+		</if> 
+		GROUP BY A.aid 
+		ORDER BY A.aid DESC		
+		<choose>
+			<when test="offset != null and offset > 0">
+				LIMIT #{offset}, 20
+			</when>
+			<otherwise>
+				LIMIT 0, 20
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="getArticle" resultType="java.util.HashMap">
+		SELECT aid, title, body, vcount, ctime 
+		FROM article 
+		WHERE aid = #{aid}
+	</select>
+	
+	<select id="getArticlePw" resultType="String">
+		SELECT pw FROM article
+		WHERE aid = #{aid}
+	</select>
+	
+	<insert id="setArticle" parameterType="java.util.HashMap" useGeneratedKeys="true" keyProperty="aid">
+		INSERT INTO article (title, body, pw)
+		VALUES (#{atitle}, #{abody}, #{apw})
+	</insert>
+	
+	<update id="updateArticle">
+		UPDATE article SET title = #{title}, body = #{body}
+		WHERE aid = #{aid}
+	</update>
+	
+	<update id="updateViewCount">
+		UPDATE article SET vcount = vcount + 1 WHERE aid = #{aid}
+	</update>
+	
+	<delete id="deleteArticle">
+		DELETE FROM article
+		WHERE aid = #{aid}
+	</delete>
+	
+	<select id="getCommentList" resultType="java.util.HashMap">
+		SELECT cid, body, user_id, ctime 
+		FROM comments WHERE aid = #{aid} 
+		ORDER BY cid ASC
+	</select>
+	
+	<select id="getCommentUserId" resultType="String">
+		SELECT user_id FROM comments
+		WHERE aid = #{aid}
+	</select>
+	
+	<insert id="setComment">
+		INSERT INTO comments (aid, body, user_id) 
+		VALUES (#{aid}, #{body}, #{uid})
+	</insert>
+	
+	<update id="updateComment">
+		UPDATE comments SET body = #{body}
+		WHERE cid = #{cid}
+	</update>
+	
+	<delete id="deleteComment">
+		DELETE FROM comments
+		WHERE cid = #{cid}
+	</delete>
+	
+</mapper>
