@@ -75,7 +75,7 @@
 	</div>
 	
 	<div class="container my-3 bg-white rounded shadow">
-		<h6 class="border-bottom border-gray py-3 font-weight-bold"><a href="/contents.do">[썰 게시판]</a><small>  최신 글</small></h6>			
+		<h6 class="border-bottom border-gray py-3 font-weight-bold"><a href="/articles.do">[썰 게시판]</a><small>  최신 글</small></h6>			
 		<c:forEach var="ct" begin="0" end="10" items="${articleList}" varStatus="status">
 			<div class="media text-muted pt-2">
         		<div class="media-body pb-2 mb-0 lh-125 border-bottom border-gray">
