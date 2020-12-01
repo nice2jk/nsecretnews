@@ -21,6 +21,8 @@
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
+	<script data-ad-client="ca-pub-3843225232663919" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
 	<title>쓰잘데기 10.0</title>
 
 	<script type="text/javascript">
