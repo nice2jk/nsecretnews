@@ -36,7 +36,7 @@
 	            success:function(data){
 	                $('#adetail').html("");
 	                var writehtml = "";
-	                writehtml += "<h6 class='border-bottom border-gray pb-2 mb-0 font-weight-bold text-primary'><a href='articles.do'>[썰 게시판]</a><a href='/write'><img src='/images/write.png' alt='...' class='img-thumbnail mx-2'></a></h6>";
+	                writehtml += "<h6 class='border-bottom border-gray pb-2 mb-0 font-weight-bold text-primary'><a href='articles.do'>[썰 게시판]</a><a href='/write.do'><img src='/images/write.png' alt='...' class='img-thumbnail mx-2'></a></h6>";
 	                writehtml += "<h5 class='border-bottom border-gray py-2 my-3 font-weight-bold'>" + data.title + "</h5>";
 	                writehtml += "<div class='d-flex justify-content-between py-2 mb-2 small align-items-center w-100 border-bottom border-gray'>";
 	                writehtml += "<span class='font-weight-bold'>" + data.aid + "<img src='/images/view.png' alt='...' class='img-thumbnail mx-2'>" + data.vcount + "<img src='/images/reply.png' alt='...' class='img-thumbnail mx-2'>" + data.comments.length + "</span>";
