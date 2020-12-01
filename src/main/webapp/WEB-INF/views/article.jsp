@@ -34,7 +34,7 @@
 	            success:function(data){
 	                $('#adetail').html("");
 	                var writehtml = "";
-	                writehtml += "<h6 class='border-bottom border-gray pb-2 mb-0 font-weight-bold text-primary'><a href='articles.do'>[자유게시판]</a><a href='/write'><img src='/images/write.png' alt='...' class='img-thumbnail mx-2'></a></h6>";
+	                writehtml += "<h6 class='border-bottom border-gray pb-2 mb-0 font-weight-bold text-primary'><a href='articles.do'>[썰 게시판]</a><a href='/write'><img src='/images/write.png' alt='...' class='img-thumbnail mx-2'></a></h6>";
 	                writehtml += "<h5 class='border-bottom border-gray py-2 my-3 font-weight-bold'>" + data.title + "</h5>";
 	                writehtml += "<div class='d-flex justify-content-between py-2 mb-2 small align-items-center w-100 border-bottom border-gray'>";
 	                writehtml += "<span class='font-weight-bold'>" + data.aid + "<img src='/images/view.png' alt='...' class='img-thumbnail mx-2'>" + data.vcount + "<img src='/images/reply.png' alt='...' class='img-thumbnail mx-2'>" + data.comments.length + "</span>";
@@ -57,8 +57,7 @@
 		function writeComment(comments) {			
 			
 			$('#cdetail').html("");
-			var writehtml = "";
-			//writehtml += "<h5 class='border-bottom border-gray py-3 font-weight-bold'><a href='/articles.do'>[자유게시판]</a><small>  최신 글</small></h5>";
+			var writehtml = "";			
 			for(i = 0; i < comments.length; i++) {
 				writehtml += "<div class='row border-bottom border-gray py-2 mx-1'>";
 				writehtml += "<div class='col'>" + comments[i].body;
@@ -83,7 +82,7 @@
 			var userId = Math.floor(Math.random() * 10000);
 			
 			$.ajax({
-			    type       : 'POST',			    
+			    type       : 'POST',
 			    contentType: 'application/json',
 			    data : JSON.stringify({"aid":"${aid}", "body":form.cbody.value, "uid":userId}),			    
 			    url        : 'comment',
@@ -96,7 +95,7 @@
 					writehtml += "<small><span class='text-muted'>" + userId + " | </span><span class='text-success'>" + new Date().toISOString() + "</span></small>";
 					writehtml += "</div>";
 					writehtml += "</div>";
-					$('#cdetail').append(writehtml);	
+					$('#cdetail').append(writehtml);
 			    },
 			    fail:function(error){
 			    	alert("comment error");
@@ -106,6 +105,29 @@
 		
 		function goList() {
 			window.location.href = "/articles.do";
+		}
+		
+		function goRemove() {
+			var forms = document.deleteForm;
+			var raid = forms.aid.value;
+			var rapw = forms.apw.value;
+			
+			$.ajax({
+			    type       : 'DELETE',
+			    contentType: 'application/json',
+			    data : JSON.stringify({"aid":raid, "apw":rapw}),			    
+			    url        : 'article',
+			    success:function(data){
+					alert("삭제 완료");
+					window.location.href = "/articles.do";
+			    },
+			    error:function(error){
+			    	alert("비밀번호를 확인하세요.");
+			    }
+			});
+			
+			
+			
 		}
 	</script>
 </head>
@@ -122,7 +144,7 @@
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item"><a class="nav-link" href="/contents.do?category=recm">추천</a></li>
-				<li class="nav-item"><a class="nav-link" href="/articles.do">자유게시판</a></li>
+				<li class="nav-item"><a class="nav-link" href="/articles.do">썰 게시판</a></li>
 				<li class="nav-item"><a class="nav-link" href="/contents.do?category=best">베스트</a></li>
 				<li class="nav-item"><a class="nav-link" href="/contents.do?category=xart">조공 모음</a></li>
 				<li class="nav-item"><a class="nav-link" href="/contents.do?category=news">뉴스 모음</a></li>
@@ -160,11 +182,11 @@
 	
 	<div class="d-flex justify-content-between p-3 mb-2 small align-items-center w-100 border-bottom border-gray">
 		<button onclick="goList()" class="btn btn-primary">목록</button>
-		<form id="deleteForm" action="/delete.done" method="post">
+		<form name="deleteForm">
 			<div class="input-group-prepend">
-				<input type="hidden" id="aid" name="aid" value="${article.aid}"/>
-				<input type="text" name="apw" id="basic-label" placeholder="비밀번호 입력" aria-label="Username" aria-describedby="inputGroup-sizing-lg" required>
-				<button type="submit" class="btn btn-primary ml-2" onclick="goSubmit()">삭제</button>				
+				<input type="hidden" id="aid" name="aid" value="${aid}"/>
+				<input type="text" name="apw" id="basic-label" maxlength="4" placeholder="비밀번호 입력 (4자리)" aria-label="Username" aria-describedby="inputGroup-sizing-lg" required>
+				<button type="button" class="btn btn-primary ml-2" onclick="goRemove()">삭제</button>				
 			</div>
 		</form>
 	</div>

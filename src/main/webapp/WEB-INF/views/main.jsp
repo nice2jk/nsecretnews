@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
 <html lang="ko">
 <head>
@@ -37,7 +38,7 @@
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item"><a class="nav-link" href="/contents.do?category=recm">추천</a></li>
-				<li class="nav-item"><a class="nav-link" href="/articles.do">자유게시판</a></li>
+				<li class="nav-item"><a class="nav-link" href="/articles.do">썰 게시판</a></li>
 				<li class="nav-item"><a class="nav-link" href="/contents.do?category=best">베스트</a></li>
 				<li class="nav-item"><a class="nav-link" href="/contents.do?category=xart">조공 모음</a></li>
 				<li class="nav-item"><a class="nav-link" href="/contents.do?category=news">뉴스 모음</a></li>
@@ -60,7 +61,7 @@
         		<div class="media-body pb-2 mb-0 lh-125 border-bottom border-gray">
           			<div class="d-flex justify-content-between mb-2 small align-items-center w-100">
             			<span class="font-italic">${ct.cpname}</span>
-						<span class="text-success">${ct.ctime}</span>            
+						<span class="text-success"><fmt:formatDate pattern="yyyy-MM-dd'T'HH:mm:ssz" value="${ct.ctime}" timeZone="UTC"/></span>            
           			</div>
           			<div class="d-flex justify-content-between mb-0 align-items-center w-100">
           				<strong style="text-overflow: ellipsis; overflow: hidden;"><a href="${ct.link}" target="_blank" class="text-danger">${ct.title}</a></strong>          	
@@ -72,26 +73,31 @@
 	</div>
 	
 	<div class="container my-3 bg-white rounded shadow">
-		<h5 class="border-bottom border-gray py-3 font-weight-bold"><a href="/articles.do">[자유게시판]</a><small>  최신 글</small></h5>			
+		<h6 class="border-bottom border-gray py-3 font-weight-bold"><a href="/contents.do">[썰 게시판]</a><small>  최신 글</small></h6>			
 		<c:forEach var="ct" begin="0" end="10" items="${articleList}" varStatus="status">
-			<div class="row border-bottom border-gray py-2 mx-1">
-				<div class="col">
-					<strong style="text-overflow: ellipsis; overflow: hidden;"><a href="/article.do?aid=${ct.aid}" class="text-info">
-					<c:choose>
-					<c:when test="${ct.count == 0}">
-						${ct.title}</a></strong>					
-					</c:when>
-					<c:otherwise>
-						${ct.title}</a></strong> [${ct.count}]
-					</c:otherwise>
-					</c:choose>
-				</div>
-				<div class="col text-right">
-					<small><span class="text-muted">${ct.vcount} | </span><span class="text-success">${ct.ctime}</span></small>
-				</div>
-			</div>
+			<div class="media text-muted pt-2">
+        		<div class="media-body pb-2 mb-0 lh-125 border-bottom border-gray">
+          			<div class="d-flex justify-content-between mb-2 small align-items-center w-100">
+            			<span class="font-italic">${ct.aid} | ${ct.vcount}</span>
+						<span class="text-success"><fmt:formatDate pattern="yyyy-MM-dd'T'HH:mm:ssz" value="${ct.ctime}" timeZone="UTC"/></span>            
+          			</div>
+          			<div class="d-flex justify-content-between mb-0 align-items-center w-100">
+          				<strong style="text-overflow: ellipsis; overflow: hidden;"><a href="/article.do?aid=${ct.aid}" class="text-info">
+        				<c:choose>
+						<c:when test="${ct.count == 0}">
+							${ct.title}</a></strong>					
+						</c:when>
+						<c:otherwise>
+							${ct.title}</a> [${ct.count}]</strong>
+						</c:otherwise>
+						</c:choose>          				
+          			</div>
+        		</div>
+      		</div>
 		</c:forEach>
-    </div>
+	</div>
+	
+	
 
 	<p>
 	<footer class="text-muted">

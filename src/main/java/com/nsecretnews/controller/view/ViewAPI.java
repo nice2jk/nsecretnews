@@ -1,5 +1,7 @@
 package com.nsecretnews.controller.view;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,7 +26,7 @@ public class ViewAPI {
 	
 	@RequestMapping(value={"/", "main"}, method = RequestMethod.GET)
 	public String getMain(Model model) {
-		System.out.println("Main");
+		System.out.println("Main : " + new Date());
 		
 		model.addAttribute("contentList", contentService.getContentsForMain());
 		model.addAttribute("articleList", articleService.getArticleListForMain());
@@ -33,26 +35,30 @@ public class ViewAPI {
 	}
 	
 	@GetMapping("/contents.do")
-	public String getMain(
+	public String getContents(
 			@RequestParam(value="category", required=true, defaultValue="best") String category,
 			@RequestParam(value="offset", required=true, defaultValue="0") int offset,
+			@RequestParam(value="search", required=false) String search,
 			Model model) {
-		System.out.println("Contents do");
+		//System.out.println("Contents do " + search);
 		
 		model.addAttribute("category", category);
 		model.addAttribute("offset", offset);
-		model.addAttribute("categoryName", CategoryUtils.getCategoryName(category));
+		model.addAttribute("search", search);
+		model.addAttribute("categoryName", CategoryUtils.getCategoryName(category));		
 		
 		return "contents";
 	}
 	
 	@GetMapping("/articles.do")
 	public String getArticles(
-			@RequestParam(value="offset", required=true, defaultValue="0") int offset,			
+			@RequestParam(value="offset", required=true, defaultValue="0") int offset,
+			@RequestParam(value="search", required=false) String search,
 			Model model) {
 		System.out.println("articles do");
 		
 		model.addAttribute("offset", offset);
+		model.addAttribute("search", search);
 		
 		return "articles";
 	}

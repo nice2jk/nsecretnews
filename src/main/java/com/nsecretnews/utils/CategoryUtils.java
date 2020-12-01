@@ -6,7 +6,7 @@ public class CategoryUtils {
 		if (categoryId.equals("recm")) {
             return "추천";
 		} else if (categoryId.equals("board")) {
-            return "자유게시판";
+            return "썰 게시판";
         } else if (categoryId.equals("xart")) {
             return "조공 모음";
         } else if (categoryId.equals("news")) {

@@ -59,6 +59,10 @@
 		WHERE aid = #{aid}
 	</delete>
 	
+	<select id="checkArticlePw" resultType="int">
+		SELECT IF(pw = #{apw}, 1, 0) FROM article WHERE aid = #{aid};
+	</select>
+	
 	<select id="getCommentList" resultType="java.util.HashMap">
 		SELECT cid, body, user_id, ctime 
 		FROM comments WHERE aid = #{aid} 
@@ -83,6 +87,11 @@
 	<delete id="deleteComment">
 		DELETE FROM comments
 		WHERE cid = #{cid}
+	</delete>
+	
+	<delete id="deleteComments">
+		DELETE FROM comments
+		WHERE aid = #{aid}
 	</delete>
 	
 </mapper>

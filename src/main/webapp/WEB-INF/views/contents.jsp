@@ -26,42 +26,20 @@
 	<script type="text/javascript">
 		var category;
 		var offset = 0;
+		var search;
 		
 		$( document ).ready(function() {	
-			category = "${category}";			
+			category = "${category}";
+			search = "${search}";			
 			getContents();
 		});
 		
 		function getContents() {
 			$.ajax({
 	        	type: "GET",
-	        	url: "contents?category=${category}&offset=${offset}",			
+	        	url: "contents?category=${category}&offset=${offset}&search=${search}",			
 	            success:function(data){
-	                $('#clist').html("");
-	                var writehtml = "";
-	                category = data.category;
-	    			offset = data.offset;
-	                writehtml += "<h6 class='border-bottom border-gray pb-2 mb-0 font-weight-bold text-primary'><a href='/contents.do?category=${category}'>[${categoryName}]</a></h6>";	                  
-	                
-	                for(i = 0; i < data.contentList.length; i++) {
-		                writehtml += "<div class='media text-muted pt-2'>";
-		                writehtml += "<div class='media-body pb-2 mb-0 lh-125 border-bottom border-gray'>";
-		                writehtml += "<div class='d-flex justify-content-between mb-2 small align-items-center w-100'>";
-		                writehtml += "<span class='font-italic'>" + data.contentList[i].cpname + "</span>";
-		                writehtml += "<span class='text-success'>" + new Date(data.contentList[i].ctime).toISOString() + "</span>";
-		                writehtml += "</div>";
-		                writehtml += "<div id='i" + data.contentList[i].id + "' class='d-flex justify-content-between mb-0 align-items-center w-100'>";
-		                if(data.contentList[i].grade == 2) {
-		                	writehtml += "<strong style='text-overflow: ellipsis; overflow: hidden;'><a href='" + data.contentList[i].link + "' target='_blank' class='text-danger'>" + data.contentList[i].title + "</a></strong>";	
-		                	writehtml += "<input type='image' src='/images/check_yes.png' onclick='setGrade2(" + data.contentList[i].id + ", " + data.contentList[i].grade + ")' gealt='Submit' class='img-thumbnail ml-2'>";		                	
-		                } else {
-		                	writehtml += "<a href='" + data.contentList[i].link + "' target='_blank' class='text-info'>" + data.contentList[i].title + "</a>";
-		                	writehtml += "<input type='image' src='/images/check_no.png' onclick='setGrade2(" + data.contentList[i].id + ", " + data.contentList[i].grade + ")' alt='Submit' class='img-thumbnail ml-2'>";		                	
-		                }
-		                
-		                writehtml += "</div></div></div>";
-	                }
-	                $('#clist').html(writehtml);
+	            	viewHtml(data);
 	            },
 	            fail: function(error){
 	            	alert("통신 데이터 값 2: ");
@@ -69,6 +47,35 @@
 	            dataType: "json",
 				contentType: "application/json; charset=utf-8"
 	        })
+		}
+		
+		function viewHtml(data) {
+			$('#clist').html("");
+            var writehtml = "";
+            category = data.category;
+			offset = data.offset;
+			search = data.search;
+            writehtml += "<h6 class='border-bottom border-gray pb-2 mb-0 font-weight-bold text-primary'><a href='/contents.do?category=${category}'>[${categoryName}]</a></h6>";	                  
+            
+            for(i = 0; i < data.contentList.length; i++) {
+                writehtml += "<div class='media text-muted pt-2'>";
+                writehtml += "<div class='media-body pb-2 mb-0 lh-125 border-bottom border-gray'>";
+                writehtml += "<div class='d-flex justify-content-between mb-2 small align-items-center w-100'>";
+                writehtml += "<span class='font-italic'>" + data.contentList[i].cpname + "</span>";
+                writehtml += "<span class='text-success'>" + new Date(data.contentList[i].ctime).toISOString() + "</span>";
+                writehtml += "</div>";
+                writehtml += "<div id='i" + data.contentList[i].id + "' class='d-flex justify-content-between mb-0 align-items-center w-100'>";
+                if(data.contentList[i].grade == 2) {
+                	writehtml += "<strong style='text-overflow: ellipsis; overflow: hidden;'><a href='" + data.contentList[i].link + "' target='_blank' class='text-danger'>" + data.contentList[i].title + "</a></strong>";	
+                	writehtml += "<input type='image' src='/images/check_yes.png' onclick='setGrade2(" + data.contentList[i].id + ", " + data.contentList[i].grade + ")' gealt='Submit' class='img-thumbnail ml-2'>";		                	
+                } else {
+                	writehtml += "<strong style='text-overflow: ellipsis; overflow: hidden;'><a href='" + data.contentList[i].link + "' target='_blank' class='text-info'>" + data.contentList[i].title + "</a></strong>";
+                	writehtml += "<input type='image' src='/images/check_no.png' onclick='setGrade2(" + data.contentList[i].id + ", " + data.contentList[i].grade + ")' alt='Submit' class='img-thumbnail ml-2'>";		                	
+                }
+                
+                writehtml += "</div></div></div>";
+            }
+            $('#clist').html(writehtml);
 		}
 		
 		function setGrade2(data, grade) {
@@ -91,6 +98,32 @@
 			    }
 			});
 		}		
+		
+		function goSubmit() {
+			var searchForm = document.searchForm;
+			var searchKey = searchForm.searchKey.value;
+			
+			if(!searchKey) {
+				alert(category);
+				return;
+			} else {
+				alert(searchKey);
+				$.ajax({
+		        	type: "GET",
+		        	url: "contents.do?category=${category}&offset=${offset}&search=" + searchKey,			
+		            success:function(data){
+		            	category = data.category;
+		    			offset = data.offset;
+		    			
+		    			alert(category + ":" + offset);
+		            	getContents();
+		            },
+		            fail:function(error){
+		            	
+		            }
+				});				
+			}			
+		}
 	</script>
 </head>
 <body>
@@ -106,7 +139,7 @@
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item"><a class="nav-link" href="/contents.do?category=recm">추천</a></li>
-				<li class="nav-item"><a class="nav-link" href="/articles.do">자유게시판</a></li>
+				<li class="nav-item"><a class="nav-link" href="/articles.do">썰 게시판</a></li>
 				<li class="nav-item"><a class="nav-link" href="/contents.do?category=best">베스트</a></li>
 				<li class="nav-item"><a class="nav-link" href="/contents.do?category=xart">조공 모음</a></li>
 				<li class="nav-item"><a class="nav-link" href="/contents.do?category=news">뉴스 모음</a></li>
@@ -157,10 +190,10 @@
 	  </ul>
 	</nav>
 	
-	<form class="form-inline justify-content-center">	  
+	<form class="form-inline justify-content-center" action="/contents.do" name="searchForm">	  
 	  <div class="form-group mx-sm-3 mb-2 mr-2">
 	    <label for="inputPassword2" class="sr-only">검색어</label>
-	    <input type="hidden" name="category" value="${category}">		
+	    <input type="hidden" name="category" value="${category}">
 	    <input type="search" class="form-control" name="search" placeholder="검색어" required>
 	  </div>
 	  <button type="submit" class="btn btn-primary mb-2">검색</button>

@@ -45,4 +45,15 @@ public class ArticleService {
 		
 		return Integer.valueOf(requestMap.get("aid").toString());
 	}
+	
+	@Transactional
+	public boolean deleteArticle(HashMap<String, Object> requestMap) {
+		if(articleDAO.checkArticlePw(requestMap) == 1) {
+			articleDAO.deleteArticle(requestMap);
+			articleDAO.deleteComments(requestMap);
+			return true;
+		}
+		
+		return false;
+	}
 }

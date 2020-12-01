@@ -55,8 +55,7 @@
 			    contentType: 'application/json',
 			    data : JSON.stringify({"atitle":form.atitle.value, "abody":markupStr, "apw":form.apw.value}),			    
 			    url        : 'article',
-			    success:function(data){
-					alert("write success!");
+			    success:function(data){					
 					window.location.href = "/article.do?aid=" + data;
 			    },
 			    fail:function(error){
@@ -79,7 +78,7 @@
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item"><a class="nav-link" href="/contents.do?category=recm">추천</a></li>
-				<li class="nav-item"><a class="nav-link" href="/articles.do">자유게시판</a></li>
+				<li class="nav-item"><a class="nav-link" href="/articles.do">썰 게시판</a></li>
 				<li class="nav-item"><a class="nav-link" href="/contents.do?category=best">베스트</a></li>
 				<li class="nav-item"><a class="nav-link" href="/contents.do?category=xart">조공 모음</a></li>
 				<li class="nav-item"><a class="nav-link" href="/contents.do?category=news">뉴스 모음</a></li>
@@ -96,7 +95,7 @@
 	</nav>
 	
 	<div class="container my-3 p-3 bg-white rounded shadow-sm">
-      <h6 class="border-bottom border-gray pb-2 mb-0 font-weight-bold text-primary"><a href="/articles.do">[자유게시판]</a></h6>
+      <h6 class="border-bottom border-gray pb-2 mb-0 font-weight-bold text-primary"><a href="/articles.do">[썰 게시판]</a></h6>
 		<label for="basic-label" class="font-weight-bold my-3">글 등록하기</label>
 		<form id="writeForm">
 			<div class="input-group mb-1">
@@ -112,7 +111,7 @@
 				<div class="input-group-prepend">
 					<span class="input-group-text" id="basic-addon1">비밀번호</span>
 				</div>
-				<input type="text" name="apw" id="basic-label" placeholder="비밀번호 입력" aria-label="Username" aria-describedby="basic-addon1" required>
+				<input type="text" name="apw" id="basic-label" maxlength="4" placeholder="비밀번호 입력 (4자리)" aria-label="Username" aria-describedby="basic-addon1" required>
 			</div>
 			<button type="button" class="btn btn-primary mb-2" onclick="goSubmit()">등록</button>
 	  	</form>

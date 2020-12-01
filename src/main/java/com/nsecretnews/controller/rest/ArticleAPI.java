@@ -3,6 +3,9 @@ package com.nsecretnews.controller.rest;
 import java.util.HashMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -58,9 +61,21 @@ public class ArticleAPI {
 	@PostMapping("/article")	
 	public int writeArticle(
 			@RequestBody HashMap<String, Object> requestMap) {
-		System.out.println("article write");
+		System.out.println("Write Article");
 		
 		return articleService.setArticle(requestMap);
+	}
+	
+	@DeleteMapping("article")
+	public ResponseEntity<String> deleteArticle(
+			@RequestBody HashMap<String, Object> requestMap) {
+		System.out.println("Delete Article " + requestMap.get("aid") + ":" + requestMap.get("apw"));
+		
+		if(articleService.deleteArticle(requestMap)) {
+			return new ResponseEntity<>(HttpStatus.OK);	
+		}
+		
+		return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 	}
 	
 }

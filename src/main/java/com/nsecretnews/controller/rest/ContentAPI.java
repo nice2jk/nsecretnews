@@ -24,7 +24,7 @@ public class ContentAPI {
 			@RequestParam(value="category", required=true, defaultValue="best") String category,
 			@RequestParam(value="offset", required=true, defaultValue="0") int offset,
 			@RequestParam(value="search", required=false) String search) {
-		System.out.println("Content : " + category + ", offset = " + offset);
+		System.out.println("Content : " + category + ", offset = " + offset + ", search = " + search);
 		
 		HashMap<String, Object> requestMap = new HashMap<String, Object>();
 		

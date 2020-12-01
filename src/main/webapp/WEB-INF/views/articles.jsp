@@ -33,23 +33,23 @@
 		function getContents() {
 			$.ajax({
 	        	type: "GET",
-	        	url: "articles?offset=${offset}",			
+	        	url: "articles?offset=${offset}&search=${search}",
 	            success:function(data){
 	                $('#clist').html("");
 	                var writehtml = "";	                
 	    			offset = data.offset;
-	                writehtml += "<h6 class='border-bottom border-gray pb-2 mb-0 font-weight-bold text-primary'><a href='/articles.do'>[자유게시판]</a><a href='write.do'><img src='/images/write.png' alt='...' class='img-thumbnail mx-2'></a></h6>";	                  
+	                writehtml += "<h6 class='border-bottom border-gray pb-2 mb-0 font-weight-bold text-primary'><a href='/articles.do'>[썰 게시판]</a><a href='write.do'><img src='/images/write.png' alt='...' class='img-thumbnail mx-2'></a></h6>";	                  
 	                
 	                for(i = 0; i < data.contentList.length; i++) {
 		                writehtml += "<div class='media text-muted pt-2'>";
 		                writehtml += "<div class='media-body pb-2 mb-0 lh-125 border-bottom border-gray'>";
 		                writehtml += "<div class='d-flex justify-content-between mb-2 small align-items-center w-100'>";
-		                writehtml += "<span class='font-italic'>" + data.contentList[i].aid + "</span>";
+		                writehtml += "<span class='font-italic'>" + data.contentList[i].aid + "  <img src='/images/view.png' alt='...' class='img-thumbnail mx-2'>" + data.contentList[i].vcount + "</span>";
 		                writehtml += "<span class='text-success'>" + new Date(data.contentList[i].ctime).toISOString() + "</span>";
 		                writehtml += "</div>";
 		                writehtml += "<div class='d-flex justify-content-between mb-0 align-items-center w-100'>";
-		                writehtml += "<a href='article.do?aid=" + data.contentList[i].aid + "' class='text-info'>" + data.contentList[i].title + "</a>";
-	                	writehtml += "<span class='font-weight-bold'><img src='/images/view.png' alt='...' class='img-thumbnail mx-2'>" + data.contentList[i].vcount + "<img src='/images/reply.png' alt='...' class='img-thumbnail mx-2'>" + data.contentList[i].count + "</span>";
+		                writehtml += "<strong style='text-overflow: ellipsis; overflow: hidden;'><a href='article.do?aid=" + data.contentList[i].aid + "' class='text-info'>" + data.contentList[i].title + "</a></strong>";
+	                	writehtml += "<span class='font-weight-bold'><img src='/images/reply.png' alt='...' class='img-thumbnail mx-2'>" + data.contentList[i].count + "</span>";
 		                writehtml += "</div></div></div>";
 	                }
 	                $('#clist').html(writehtml);
@@ -98,7 +98,7 @@
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item"><a class="nav-link" href="/contents.do?category=recm">추천</a></li>
-				<li class="nav-item"><a class="nav-link" href="/articles.do">자유게시판</a></li>
+				<li class="nav-item"><a class="nav-link" href="/articles.do">썰 게시판</a></li>
 				<li class="nav-item"><a class="nav-link" href="/contents.do?category=best">베스트</a></li>
 				<li class="nav-item"><a class="nav-link" href="/contents.do?category=xart">조공 모음</a></li>
 				<li class="nav-item"><a class="nav-link" href="/contents.do?category=news">뉴스 모음</a></li>
@@ -149,7 +149,7 @@
 	  </ul>
 	</nav>
 	
-	<form class="form-inline justify-content-center">	  
+	<form class="form-inline justify-content-center" action="/articles.do">	  
 	  <div class="form-group mx-sm-3 mb-2 mr-2">
 	    <label for="inputPassword2" class="sr-only">검색어</label>
 	    <input type="hidden" name="category" value="${category}">		
