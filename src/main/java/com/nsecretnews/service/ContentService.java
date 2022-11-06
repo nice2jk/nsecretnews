@@ -31,6 +31,10 @@ public class ContentService {
 				
 		return contentDAO.getBestContentsForMain();
 	}
+
+	public List<HashMap<String, Object>> getRecommendContentsForMain() {
+		return contentDAO.getRecommendContentsForMain();
+	}
 	
 	@Transactional
 	public List<HashMap<String, Object>> getContents(HashMap<String, Object> requestMap) {

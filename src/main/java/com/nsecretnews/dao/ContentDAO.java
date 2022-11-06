@@ -18,6 +18,7 @@ public interface ContentDAO {
 	public List<HashMap<String, Object>> getBestContentsForMain();
 	public List<HashMap<String, Object>> getBestContents(HashMap<String, Object> hashmap);
 	public List<HashMap<String, Object>> getRecommendContents(HashMap<String, Object> hashmap);
+	public List<HashMap<String, Object>> getRecommendContentsForMain();
 	public List<HashMap<String, Object>> getContents(HashMap<String, Object> hashmap);
 	
 	public void updateGrade(@Param("id") int id, @Param("grade") int grade);

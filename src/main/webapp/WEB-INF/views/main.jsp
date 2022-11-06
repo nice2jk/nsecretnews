@@ -57,8 +57,26 @@
 	</nav>
     
     <div class="container my-3 bg-white rounded shadow">
-		<h5 class="border-bottom border-gray py-3 font-weight-bold"><a href="/contents.do">[베스트]</a><small>  최신 글</small></h5>			
+		<h6 class="border-bottom border-gray py-3 font-weight-bold"><a href="/contents.do">[베스트]</a><small>  최신 글</small></h6>			
 		<c:forEach var="ct" begin="0" end="10" items="${contentList}" varStatus="status">
+			<div class="media text-muted pt-2">
+        		<div class="media-body pb-2 mb-0 lh-125 border-bottom border-gray">
+          			<div class="d-flex justify-content-between mb-2 small align-items-center w-100">
+            			<span class="font-italic">${ct.cpname}</span>
+						<span class="text-success"><fmt:formatDate pattern="yyyy-MM-dd'T'HH:mm:ssz" value="${ct.ctime}" timeZone="UTC"/></span>            
+          			</div>
+          			<div class="d-flex justify-content-between mb-0 align-items-center w-100">
+          				<strong style="text-overflow: ellipsis; overflow: hidden;"><a href="${ct.link}" target="_blank" class="text-dark">${ct.title}</a></strong>          	
+          				
+          			</div>
+        		</div>
+      		</div>
+		</c:forEach>
+	</div>
+	
+	<div class="container my-3 bg-white rounded shadow">
+		<h6 class="border-bottom border-gray py-3 font-weight-bold"><a href="/contents.do?category=recm">[추천]</a><small>  최신 추천</small></h6>			
+		<c:forEach var="ct" begin="0" end="10" items="${recmdList}" varStatus="status">
 			<div class="media text-muted pt-2">
         		<div class="media-body pb-2 mb-0 lh-125 border-bottom border-gray">
           			<div class="d-flex justify-content-between mb-2 small align-items-center w-100">
@@ -73,9 +91,10 @@
       		</div>
 		</c:forEach>
 	</div>
-	
+
+
 	<div class="container my-3 bg-white rounded shadow">
-		<h6 class="border-bottom border-gray py-3 font-weight-bold"><a href="/articles.do">[썰 게시판]</a><small>  최신 글</small></h6>			
+		<h6 class="border-bottom border-gray py-3 font-weight-bold"><a href="/articles.do">[썰 게시판]</a><a href='write.do'><img src='/images/write.png' alt='...' class='img-thumbnail mx-2'></a></h6>			
 		<c:forEach var="ct" begin="0" end="10" items="${articleList}" varStatus="status">
 			<div class="media text-muted pt-2">
         		<div class="media-body pb-2 mb-0 lh-125 border-bottom border-gray">
@@ -99,7 +118,32 @@
 		</c:forEach>
 	</div>
 	
-	
+	<div class="container my-3 bg-white rounded shadow">
+		<h6 class="border-bottom border-gray py-3 font-weight-bold"><a href="/contents.do?category=socc">[축구경기]</a><small>  EPL</small></h6>			
+		<c:forEach var="sg" begin="0" end="10" items="${soccerList}" varStatus="status">
+			<div class="media text-muted pt-2">
+        		<div class="media-body pb-2 mb-0 lh-125 border-bottom border-gray">
+          			<div class="d-flex justify-content-between mb-2 small align-items-center w-100">
+            			<span class="font-italic">${sg.league}</span>
+						<span class="text-success">${sg.mtime}</span>            
+          			</div>
+          			<div class="d-flex justify-content-between mb-0 align-items-center w-100">
+          				<strong style="text-overflow: ellipsis; overflow: hidden;">
+						<c:choose>
+						<c:when test="${sg.score eq '-'}">
+							<span class="text-danger">${sg.teama} ${sg.score} ${sg.teamb}</span></strong> 
+						</c:when>
+						<c:otherwise>
+							<span class="text-dark">${sg.teama} ${sg.score} ${sg.teamb}</span></strong> 
+						</c:otherwise>
+						</c:choose>          					
+							         	
+          				
+          			</div>
+        		</div>
+      		</div>
+		</c:forEach>
+	</div>
 
 	<p>
 	<footer class="text-muted">

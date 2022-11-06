@@ -71,7 +71,7 @@
                 	writehtml += "<strong style='text-overflow: ellipsis; overflow: hidden;'><a href='" + data.contentList[i].link + "' target='_blank' class='text-danger'>" + data.contentList[i].title + "</a></strong>";	
                 	writehtml += "<input type='image' src='/images/check_yes.png' onclick='setGrade2(" + data.contentList[i].id + ", " + data.contentList[i].grade + ")' gealt='Submit' class='img-thumbnail ml-2'>";		                	
                 } else {
-                	writehtml += "<strong style='text-overflow: ellipsis; overflow: hidden;'><a href='" + data.contentList[i].link + "' target='_blank' class='text-info'>" + data.contentList[i].title + "</a></strong>";
+                	writehtml += "<strong style='text-overflow: ellipsis; overflow: hidden;'><a href='" + data.contentList[i].link + "' target='_blank' class='text-muted'>" + data.contentList[i].title + "</a></strong>";
                 	writehtml += "<input type='image' src='/images/check_no.png' onclick='setGrade2(" + data.contentList[i].id + ", " + data.contentList[i].grade + ")' alt='Submit' class='img-thumbnail ml-2'>";		                	
                 }
                 

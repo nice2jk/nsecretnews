@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.nsecretnews.service.ArticleService;
 import com.nsecretnews.service.ContentService;
+import com.nsecretnews.service.SoccerService;
 import com.nsecretnews.utils.CategoryUtils;
 
 @Controller
@@ -22,6 +23,9 @@ public class ViewAPI {
 	
 	@Autowired
 	private ArticleService articleService;
+
+	@Autowired
+	private SoccerService soccerService;
 	
 	
 	@RequestMapping(value={"/", "main"}, method = RequestMethod.GET)
@@ -30,6 +34,10 @@ public class ViewAPI {
 		
 		model.addAttribute("contentList", contentService.getContentsForMain());
 		model.addAttribute("articleList", articleService.getArticleListForMain());
+		model.addAttribute("recmdList", contentService.getRecommendContentsForMain());
+		model.addAttribute("soccerList", soccerService.getSoccerListForMain());
+
+		
 		
 		return "main";
 	}

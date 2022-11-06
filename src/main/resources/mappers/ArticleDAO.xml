@@ -8,7 +8,7 @@
 		FROM article AS A LEFT OUTER JOIN comments AS B ON A.aid = B.aid		
 		GROUP BY A.aid 
 		ORDER BY A.aid DESC
-		LIMIT 0, 10
+		LIMIT 0, 5
 	</select>
 	
 	<select id="getArticleList" parameterType="java.util.HashMap" resultType="java.util.HashMap">
