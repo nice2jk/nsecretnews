@@ -57,7 +57,7 @@
             category = data.category;
 			offset = data.offset;
 			search = data.search;
-            writehtml += "<h6 class='border-bottom border-gray pb-2 mb-0 font-weight-bold text-primary'><a href='/contents.do?category=${category}'>[${categoryName}]</a></h6>";	                  
+            writehtml += "<h6 class='border-bottom border-gray py-3 mb-0 font-weight-bold text-primary'><a href='/contents.do?category=${category}'>[${categoryName}]</a></h6>";	                  
             
             for(i = 0; i < data.contentList.length; i++) {
                 writehtml += "<div class='media text-muted pt-2'>";
@@ -157,16 +157,16 @@
 		</div>
 	</nav>
     
-	<div class="container my-3 bg-warning rounded shadow">
+	<div class="container my-3 bg-primary rounded shadow">
 		<div class="d-flex justify-content-between mb-2 small align-items-center w-100">
 			<div class="btn-group" role="group">
-			<button type="button" class="btn btn-link font-weight-bold text-danger" onclick="location.href='/contents.do'">베스트</button>
+			<button type="button" class="btn btn-link font-weight-bold text-warning" onclick="location.href='/contents.do'">베스트</button>
 			</div>
 			<div class="btn-group" role="group">
-			<button type="button" class="btn btn-link font-weight-bold text-danger" onclick="location.href='/soccerepl.do'">EPL</button>
+			<button type="button" class="btn btn-link font-weight-bold text-warning" onclick="location.href='/soccerepl.do'">EPL</button>
 			</div>
 			<div class="btn-group" role="group">
-			<button type="button" class="btn btn-link font-weight-bold text-danger" onclick="location.href='/soccerepl.do?category=WC2022'">2022 Worldcup</button>
+			<button type="button" class="btn btn-link font-weight-bold text-warning" onclick="location.href='/soccerepl.do?category=WC2022'">2022 Worldcup</button>
 			</div>
 		</div>
 	</div>

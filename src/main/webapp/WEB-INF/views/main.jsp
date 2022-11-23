@@ -69,16 +69,16 @@
 		</div>
 	</div> -->
 
-	<div class="container my-3 bg-warning rounded shadow">
+	<div class="container my-3 bg-primary rounded shadow">
 		<div class="d-flex justify-content-between mb-2 small align-items-center w-100">
 			<div class="btn-group" role="group">
-			<button type="button" class="btn btn-link font-weight-bold text-danger" onclick="location.href='/contents.do'">베스트</button>
+			<button type="button" class="btn btn-link font-weight-bold text-warning" onclick="location.href='/contents.do'">베스트</button>
 			</div>
 			<div class="btn-group" role="group">
-			<button type="button" class="btn btn-link font-weight-bold text-danger" onclick="location.href='/soccerepl.do'">EPL</button>
+			<button type="button" class="btn btn-link font-weight-bold text-warning" onclick="location.href='/soccerepl.do'">EPL</button>
 			</div>
 			<div class="btn-group" role="group">
-			<button type="button" class="btn btn-link font-weight-bold text-danger" onclick="location.href='/soccerepl.do?category=WC2022'">2022 Worldcup</button>
+			<button type="button" class="btn btn-link font-weight-bold text-warning" onclick="location.href='/soccerepl.do?category=WC2022'">2022 Worldcup</button>
 			</div>
 		</div>
 	</div>
