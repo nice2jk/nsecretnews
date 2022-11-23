@@ -1,5 +1,7 @@
 package com.nsecretnews.controller.rest;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +28,11 @@ public class ArticleAPI {
 	public HashMap<String, Object> getArticles(
 		@RequestParam(value="offset", required=true, defaultValue="0") int offset,
 		@RequestParam(value="search", required=false) String search) {
-		System.out.println("getArticles" + " : " + offset + ", " + search);
+		
+		SimpleDateFormat formatter= new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss z");
+		Date date = new Date(System.currentTimeMillis());
+
+		System.out.println(formatter.format(date) + " - getArticles" + " : " + offset + ", " + search);
 		
 		HashMap<String, Object> requestMap = new HashMap<String, Object>();
 		

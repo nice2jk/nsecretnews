@@ -11,4 +11,5 @@ import org.springframework.stereotype.Repository;
 public interface SoccerDAO {
 
     public List<HashMap<String, Object>> getSoccerForMain();
+    public List<HashMap<String, Object>> getSoccer(HashMap<String, Object> hashmap);
 }

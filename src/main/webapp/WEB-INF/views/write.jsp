@@ -20,9 +20,9 @@
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
     
-    <script data-ad-client="ca-pub-3843225232663919" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3843225232663919" crossorigin="anonymous"></script>
     
-    <title>쓰잘데기 10.0</title>
+    <title>쓰잘데기 11.0</title>
     
     <script>
 	 $(document).ready(function() {

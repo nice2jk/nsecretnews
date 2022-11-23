@@ -4,7 +4,24 @@
 <mapper namespace="com.nsecretnews.dao.SoccerDAO">
 	
     <select id="getSoccerForMain" resultType="java.util.HashMap">
-        SELECT * FROM smatch WHERE league='EPL' ORDER BY id DESC LIMIT 10;	
+        <!-- SELECT * FROM smatch WHERE league='EPL' ORDER BY id DESC LIMIT 10;	 -->
+		SELECT * FROM smatch WHERE mtime > DATE_SUB(NOW(), INTERVAL 1 DAY) ORDER BY id ASC LIMIT 10;
+	</select>
+
+    <select id="getSoccer" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+		SELECT id, league, teama, score, teamb, mtime FROM smatch WHERE league = #{category}
+		<if test="search != null and search != ''">
+			AND (teama LIKE '%${search}%' OR teamb LIKE '%${search}%')
+		</if>
+        ORDER BY id DESC 
+		<choose>
+			<when test="offset != null and offset > 0">
+				LIMIT #{offset}, 20
+			</when>
+			<otherwise>
+				LIMIT 0, 20
+			</otherwise>
+		</choose>
 	</select>
 	
 </mapper>

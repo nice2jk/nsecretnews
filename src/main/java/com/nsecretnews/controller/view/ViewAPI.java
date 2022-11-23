@@ -30,15 +30,13 @@ public class ViewAPI {
 	
 	@RequestMapping(value={"/", "main"}, method = RequestMethod.GET)
 	public String getMain(Model model) {
-		System.out.println("Main : " + new Date());
+		// System.out.println("Main : " + new Date());
 		
 		model.addAttribute("contentList", contentService.getContentsForMain());
 		model.addAttribute("articleList", articleService.getArticleListForMain());
 		model.addAttribute("recmdList", contentService.getRecommendContentsForMain());
 		model.addAttribute("soccerList", soccerService.getSoccerListForMain());
 
-		
-		
 		return "main";
 	}
 	
@@ -57,13 +55,28 @@ public class ViewAPI {
 		
 		return "contents";
 	}
+
+	@GetMapping("/soccerepl.do")
+	public String getSoccerEpl(
+			@RequestParam(value="category", required=true, defaultValue="EPL") String category,
+			@RequestParam(value="offset", required=true, defaultValue="0") int offset,
+			@RequestParam(value="search", required=false) String search,
+			Model model) {
+		// System.out.println("soccerepl do " + search);
+		
+		model.addAttribute("category", category);
+		model.addAttribute("offset", offset);
+		model.addAttribute("search", search);
+		
+		return "soccer";
+	}
 	
 	@GetMapping("/articles.do")
 	public String getArticles(
 			@RequestParam(value="offset", required=true, defaultValue="0") int offset,
 			@RequestParam(value="search", required=false) String search,
 			Model model) {
-		System.out.println("articles do");
+		// System.out.println("articles do");
 		
 		model.addAttribute("offset", offset);
 		model.addAttribute("search", search);

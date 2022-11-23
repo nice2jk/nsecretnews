@@ -17,4 +17,8 @@ public class SoccerService {
     public List<HashMap<String, Object>> getSoccerListForMain() {
         return soccerDAO.getSoccerForMain();
     }
+
+    public List<HashMap<String, Object>> getSoccerEpl(HashMap<String, Object> requestMap) {
+        return soccerDAO.getSoccer(requestMap);
+    }
 }

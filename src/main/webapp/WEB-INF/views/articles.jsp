@@ -21,9 +21,9 @@
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-	<script data-ad-client="ca-pub-3843225232663919" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3843225232663919" crossorigin="anonymous"></script>
 
-	<title>쓰잘데기 10.0</title>
+	<title>쓰잘데기 11.0</title>
 
 	<script type="text/javascript">
 		var offset = 0;
@@ -115,6 +115,20 @@
 			</ul>			
 		</div>
 	</nav>
+
+	<div class="container my-3 bg-warning rounded shadow">
+		<div class="d-flex justify-content-between mb-2 small align-items-center w-100">
+			<div class="btn-group" role="group">
+			<button type="button" class="btn btn-link font-weight-bold text-danger" onclick="location.href='/contents.do'">베스트</button>
+			</div>
+			<div class="btn-group" role="group">
+			<button type="button" class="btn btn-link font-weight-bold text-danger" onclick="location.href='/soccerepl.do'">EPL</button>
+			</div>
+			<div class="btn-group" role="group">
+			<button type="button" class="btn btn-link font-weight-bold text-danger" onclick="location.href='/soccerepl.do?category=WC2022'">2022 Worldcup</button>
+			</div>
+		</div>
+	</div>
     
     <div id="clist" class="container my-3 bg-white rounded shadow-sm">
       
