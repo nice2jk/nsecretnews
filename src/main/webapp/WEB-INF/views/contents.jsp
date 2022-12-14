@@ -157,19 +157,33 @@
 		</div>
 	</nav>
     
-	<div class="container my-3 bg-primary rounded shadow">
-		<div class="d-flex justify-content-between mb-2 small align-items-center w-100">
-			<div class="btn-group" role="group">
-			<button type="button" class="btn btn-link font-weight-bold text-warning" onclick="location.href='/contents.do'">베스트</button>
+	<c:choose>
+		<c:when test="${category == 'xart'}">
+			<div class="container my-3 bg-white rounded shadow">
+				<form class="form-inline justify-content-center" action="https://yandex.com/images/search" target="_blank">	  
+					<div class="form-group mx-sm-3 mb-2 mr-2">
+					<input type=text name="text" maxlength=255 class="form-control" placeholder="Yandex Search" required />  
+					</div>
+					<input type=submit class="btn btn-warning mb-2" value="검색" />
+				</form>				
+			</div>			
+		</c:when>
+		<c:otherwise>
+			<div class="container my-3 bg-primary rounded shadow">
+				<div class="d-flex justify-content-between mb-2 small align-items-center w-100">
+					<div class="btn-group" role="group">
+					<button type="button" class="btn btn-link font-weight-bold text-warning" onclick="location.href='/contents.do'">베스트</button>
+					</div>
+					<div class="btn-group" role="group">
+					<button type="button" class="btn btn-link font-weight-bold text-warning" onclick="location.href='/soccerepl.do'">EPL</button>
+					</div>
+					<div class="btn-group" role="group">
+					<button type="button" class="btn btn-link font-weight-bold text-warning" onclick="location.href='/soccerepl.do?category=WC2022'">2022 Worldcup</button>
+					</div>
+				</div>
 			</div>
-			<div class="btn-group" role="group">
-			<button type="button" class="btn btn-link font-weight-bold text-warning" onclick="location.href='/soccerepl.do'">EPL</button>
-			</div>
-			<div class="btn-group" role="group">
-			<button type="button" class="btn btn-link font-weight-bold text-warning" onclick="location.href='/soccerepl.do?category=WC2022'">2022 Worldcup</button>
-			</div>
-		</div>
-	</div>
+		</c:otherwise>
+	</c:choose>
 
     <div id="clist" class="container my-3 bg-white rounded shadow">
       

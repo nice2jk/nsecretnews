@@ -116,7 +116,7 @@
 		</div>
 	</nav>
 
-	<div class="container my-3 bg-primary rounded shadow">
+	<!-- <div class="container my-3 bg-primary rounded shadow">
 		<div class="d-flex justify-content-between mb-2 small align-items-center w-100">
 			<div class="btn-group" role="group">
 			<button type="button" class="btn btn-link font-weight-bold text-warning" onclick="location.href='/contents.do'">베스트</button>
@@ -128,7 +128,9 @@
 			<button type="button" class="btn btn-link font-weight-bold text-warning" onclick="location.href='/soccerepl.do?category=WC2022'">2022 Worldcup</button>
 			</div>
 		</div>
-	</div>
+	</div> -->
+
+
     
     <div id="clist" class="container my-3 bg-white rounded shadow-sm">
       

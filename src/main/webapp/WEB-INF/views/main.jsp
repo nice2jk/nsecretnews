@@ -74,7 +74,7 @@
 			<div class="form-group mx-sm-3 mb-2 mr-2">
 			<input type=text name=q maxlength=255 class="form-control" placeholder="Google Search" required />  
 			</div>
-			<input type=submit name=btnG class="btn btn-primary mb-2" value="검색" />
+			<input type=submit class="btn btn-primary mb-2" value="검색" />
 		</form>
 	</div>
 
