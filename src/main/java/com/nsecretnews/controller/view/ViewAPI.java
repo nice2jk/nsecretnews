@@ -2,6 +2,8 @@ package com.nsecretnews.controller.view;
 
 import java.util.Date;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.nsecretnews.service.ArticleService;
 import com.nsecretnews.service.ContentService;
@@ -38,6 +41,15 @@ public class ViewAPI {
 		model.addAttribute("soccerList", soccerService.getSoccerListForMain());
 
 		return "main";
+	}
+
+	@RequestMapping(value = "/ads.txt")
+	@ResponseBody
+	public String adstxt(HttpServletResponse response) {
+		String fileName = "ads.txt";
+		response.setHeader("Content-Disposition", "attachment; filename=" + fileName);
+		String content = "google.com, pub-3843225232663919, DIRECT, f08c47fec0942fa0";
+		return content;
 	}
 	
 	@GetMapping("/contents.do")

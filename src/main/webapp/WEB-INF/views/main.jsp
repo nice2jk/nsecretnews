@@ -69,7 +69,16 @@
 		</div>
 	</div> -->
 
-	<div class="container my-3 bg-primary rounded shadow">
+	<div class="container my-3 bg-white rounded shadow">
+		<form class="form-inline justify-content-center" action="http://www.google.co.kr/search" target="_blank">	  
+			<div class="form-group mx-sm-3 mb-2 mr-2">
+			<input type=text name=q maxlength=255 class="form-control" placeholder="Google Search" required />  
+			</div>
+			<input type=submit name=btnG class="btn btn-primary mb-2" value="검색" />
+		</form>
+	</div>
+
+	<!-- <div class="container my-3 bg-white rounded shadow">
 		<div class="d-flex justify-content-between mb-2 small align-items-center w-100">
 			<div class="btn-group" role="group">
 			<button type="button" class="btn btn-link font-weight-bold text-warning" onclick="location.href='/contents.do'">베스트</button>
@@ -81,8 +90,8 @@
 			<button type="button" class="btn btn-link font-weight-bold text-warning" onclick="location.href='/soccerepl.do?category=WC2022'">2022 Worldcup</button>
 			</div>
 		</div>
-	</div>
-    
+	</div> -->
+
     <div class="container my-3 bg-white rounded shadow">
 		<h6 class="border-bottom border-gray py-3 font-weight-bold"><a href="/contents.do">[베스트]</a><small>  최신 글</small></h6>			
 		<c:forEach var="ct" begin="0" end="10" items="${contentList}" varStatus="status">
@@ -102,7 +111,10 @@
 	</div>
 
 	<div class="container my-3 bg-white rounded shadow">
-		<h6 class="border-bottom border-gray py-3 font-weight-bold"><a href="/soccerepl.do?category=WC2022">[2022 Worldcup]</a><small>  어제와 오늘...</small></h6>			
+		<div class="d-flex justify-content-between mb-2 small align-items-center w-100">
+		<h6 class="border-bottom border-gray py-3 font-weight-bold"><a href="/soccerepl.do?category=WC2022">[2022 Worldcup]</a><small></small></h6>
+		<h6 class="border-bottom border-gray py-3 font-weight-bold"><a href="/soccerepl.do">[EPL 경기일정]</a><small></small></h6>
+	</div>
 		<c:forEach var="sg" begin="0" end="10" items="${soccerList}" varStatus="status">
 			<div class="media text-muted pt-2">
         		<div class="media-body pb-2 mb-0 lh-125 border-bottom border-gray">
