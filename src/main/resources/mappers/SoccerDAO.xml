@@ -5,7 +5,8 @@
 	
     <select id="getSoccerForMain" resultType="java.util.HashMap">
         <!-- SELECT * FROM smatch WHERE league='EPL' ORDER BY id DESC LIMIT 10;	 -->
-		SELECT * FROM smatch WHERE league='EPL' AND mtime > DATE_SUB(NOW(), INTERVAL 1 DAY) ORDER BY id ASC LIMIT 10;
+		<!-- SELECT * FROM smatch WHERE league='EPL' AND mtime > DATE_SUB(NOW(), INTERVAL 1 DAY) ORDER BY id ASC LIMIT 10; -->
+		SELECT * FROM smatch WHERE league='EPL' AND mtime > DATE_SUB(NOW(), INTERVAL 1 DAY) ORDER BY id ASC LIMIT 7;
 	</select>
 
     <select id="getSoccer" parameterType="java.util.HashMap" resultType="java.util.HashMap">
