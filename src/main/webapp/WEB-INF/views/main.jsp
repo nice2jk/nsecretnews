@@ -112,8 +112,8 @@
 
 	<div class="container my-3 bg-white rounded shadow">
 		<div class="d-flex justify-content-between mb-2 small align-items-center w-100">
-		<h6 class="border-bottom border-gray py-3 font-weight-bold"><a href="/soccerepl.do?category=WC2022">[2022 Worldcup]</a><small></small></h6>
 		<h6 class="border-bottom border-gray py-3 font-weight-bold"><a href="/soccerepl.do">[EPL 경기일정]</a><small></small></h6>
+		<h6 class="border-bottom border-gray py-3 font-weight-bold"><a href="/soccerepl.do?category=WC2022">[2022 Worldcup]</a><small></small></h6>		
 	</div>
 		<c:forEach var="sg" begin="0" end="10" items="${soccerList}" varStatus="status">
 			<div class="media text-muted pt-2">
