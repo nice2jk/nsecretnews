@@ -102,8 +102,7 @@
 						<span class="text-success"><fmt:formatDate pattern="yyyy-MM-dd'T'HH:mm:ssz" value="${ct.ctime}" timeZone="UTC"/></span>            
           			</div>
           			<div class="d-flex justify-content-between mb-0 align-items-center w-100">
-          				<strong style="text-overflow: ellipsis; overflow: hidden;"><a href="${ct.link}" target="_blank" class="text-dark">${ct.title}</a></strong>          	
-          				
+          				<strong style="text-overflow: ellipsis; overflow: hidden;"><a href="${ct.link}" target="_blank" class="text-dark">${ct.title}</a></strong>          	          				
           			</div>
         		</div>
       		</div>
@@ -123,10 +122,10 @@
           				<strong style="text-overflow: ellipsis; overflow: hidden;">
 						<c:choose>
 						<c:when test="${sg.score eq '-'}">
-							<span class="text-info">${sg.teama} ${sg.score} ${sg.teamb}</span></strong> 
+							<span class="text-info"><a href="https://www.google.com/search?q=${sg.teama}+${sg.teamb}" target="_blank" class="text-info">${sg.teama} ${sg.score} ${sg.teamb}</a></span></strong> 
 						</c:when>
 						<c:otherwise>
-							<span class="text-muted">${sg.teama} ${sg.score} ${sg.teamb}</span></strong> 
+							<span class="text-muted"><a href="https://www.google.com/search?q=${sg.teama}+${sg.teamb}" target="_blank" class="text-muted">${sg.teama} ${sg.score} ${sg.teamb}</a></span></strong> 
 						</c:otherwise>
 						</c:choose>
           			</div>

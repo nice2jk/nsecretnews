@@ -73,10 +73,10 @@
                 
                 if(data.contentList[i].score == '-') {
 					writehtml += "<div id='i" + data.contentList[i].id + "' class='d-flex justify-content-between mb-0 align-items-center w-100 text-info'>";
-					writehtml += "<strong style='text-overflow: ellipsis; overflow: hidden;'>" + data.contentList[i].teama + "  " + data.contentList[i].score + "  " + data.contentList[i].teamb + "</strong>";
+					writehtml += "<strong style='text-overflow: ellipsis; overflow: hidden;'><a href='https://www.google.com/search?q=" + data.contentList[i].teama + "+" + data.contentList[i].teamb + "' target='_blank' class='text-dark'>" + data.contentList[i].teama + "  " + data.contentList[i].score + "  " + data.contentList[i].teamb + "</a></strong>";
 				} else {
 					writehtml += "<div id='i" + data.contentList[i].id + "' class='d-flex justify-content-between mb-0 align-items-center w-100 text-muted'>";
-					writehtml += "<strong style='text-overflow: ellipsis; overflow: hidden;'>" + data.contentList[i].teama + "  " + data.contentList[i].score + "  " + data.contentList[i].teamb + "</strong>";
+					writehtml += "<strong style='text-overflow: ellipsis; overflow: hidden;'><a href='https://www.google.com/search?q=" + data.contentList[i].teama + "+" + data.contentList[i].teamb + "' target='_blank' class='text-muted'>" + data.contentList[i].teama + "  " + data.contentList[i].score + "  " + data.contentList[i].teamb + "</a></strong>";
 				}
 
                 writehtml += "</div></div></div>";
