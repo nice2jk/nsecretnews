@@ -111,11 +111,8 @@
 	</div>
 
 	<div class="container my-3 bg-white rounded shadow">
-		<div class="d-flex justify-content-between mb-2 small align-items-center w-100">
 		<h6 class="border-bottom border-gray py-3 font-weight-bold"><a href="/soccerepl.do">[EPL 경기일정]</a><small></small></h6>
-		<h6 class="border-bottom border-gray py-3 font-weight-bold"><a href="/soccerepl.do?category=WC2022">[2022 Worldcup]</a><small></small></h6>		
-	</div>
-		<c:forEach var="sg" begin="0" end="10" items="${soccerList}" varStatus="status">
+		<c:forEach var="sg" begin="0" end="7" items="${soccerList}" varStatus="status">
 			<div class="media text-muted pt-2">
         		<div class="media-body pb-2 mb-0 lh-125 border-bottom border-gray">
           			<div class="d-flex justify-content-between mb-2 small align-items-center w-100">
@@ -126,7 +123,7 @@
           				<strong style="text-overflow: ellipsis; overflow: hidden;">
 						<c:choose>
 						<c:when test="${sg.score eq '-'}">
-							<span class="text-dark">${sg.teama} ${sg.score} ${sg.teamb}</span></strong> 
+							<span class="text-info">${sg.teama} ${sg.score} ${sg.teamb}</span></strong> 
 						</c:when>
 						<c:otherwise>
 							<span class="text-muted">${sg.teama} ${sg.score} ${sg.teamb}</span></strong> 
@@ -140,7 +137,7 @@
 	
 	<div class="container my-3 bg-white rounded shadow">
 		<h6 class="border-bottom border-gray py-3 font-weight-bold"><a href="/contents.do?category=recm">[추천]</a><small>  최신 추천</small></h6>			
-		<c:forEach var="ct" begin="0" end="10" items="${recmdList}" varStatus="status">
+		<c:forEach var="ct" begin="0" end="7" items="${recmdList}" varStatus="status">
 			<div class="media text-muted pt-2">
         		<div class="media-body pb-2 mb-0 lh-125 border-bottom border-gray">
           			<div class="d-flex justify-content-between mb-2 small align-items-center w-100">
@@ -158,7 +155,7 @@
 
 	<div class="container my-3 bg-white rounded shadow">
 		<h6 class="border-bottom border-gray py-3 font-weight-bold"><a href="/articles.do">[썰 게시판]</a><a href='write.do'><img src='/images/write.png' alt='...' class='img-thumbnail mx-2'></a></h6>			
-		<c:forEach var="ct" begin="0" end="10" items="${articleList}" varStatus="status">
+		<c:forEach var="ct" begin="0" end="7" items="${articleList}" varStatus="status">
 			<div class="media text-muted pt-2">
         		<div class="media-body pb-2 mb-0 lh-125 border-bottom border-gray">
           			<div class="d-flex justify-content-between mb-2 small align-items-center w-100">
@@ -166,7 +163,7 @@
 						<span class="text-success"><fmt:formatDate pattern="yyyy-MM-dd'T'HH:mm:ssz" value="${ct.ctime}" timeZone="UTC"/></span>            
           			</div>
           			<div class="d-flex justify-content-between mb-0 align-items-center w-100">
-          				<strong style="text-overflow: ellipsis; overflow: hidden;"><a href="/article.do?aid=${ct.aid}" class="text-info">
+          				<strong style="text-overflow: ellipsis; overflow: hidden;"><a href="/article.do?aid=${ct.aid}" class="text-dark">
         				<c:choose>
 						<c:when test="${ct.count == 0}">
 							${ct.title}</a></strong>					

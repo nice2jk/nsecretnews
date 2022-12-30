@@ -130,8 +130,15 @@
 		</div>
 	</div> -->
 
-
-    
+	<div class="container my-3 bg-white rounded shadow">
+		<form class="form-inline justify-content-center" action="https://yandex.com/images/search" target="_blank">	  
+			<div class="form-group mx-sm-3 mb-2 mr-2">
+			<input type=text name="text" maxlength=255 class="form-control" placeholder="Yandex Search" required />  
+			</div>
+			<input type=submit class="btn btn-warning mb-2" value="검색" />
+		</form>				
+	</div>		
+	
     <div id="clist" class="container my-3 bg-white rounded shadow-sm">
       
     </div>
