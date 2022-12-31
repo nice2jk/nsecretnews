@@ -21,7 +21,7 @@
 	</select>
 
 	<select id="getRecommendContentsForMain" resultType="java.util.HashMap">
-		SELECT id, cpname, title, link, category, grade, ctime FROM content_recmd ORDER BY id DESC LIMIT 0, 7
+		SELECT id, cpname, title, link, category, grade, ctime FROM content_recmd ORDER BY ctime DESC LIMIT 0, 7
 	</select>
 	
 	<select id="getBestContents" parameterType="java.util.HashMap" resultType="java.util.HashMap">
