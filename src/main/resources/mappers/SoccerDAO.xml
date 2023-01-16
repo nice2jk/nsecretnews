@@ -15,7 +15,7 @@
 		
 			AND (teama LIKE '%${search}%' OR teamb LIKE '%${search}%')
 		</if>
-        ORDER BY id DESC 
+        ORDER BY mtime DESC 
 		<choose>
 			<when test="offset != null and offset > 0">
 				LIMIT #{offset}, 20
