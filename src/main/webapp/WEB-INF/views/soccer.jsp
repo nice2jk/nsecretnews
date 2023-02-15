@@ -23,7 +23,7 @@
 
 	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3843225232663919" crossorigin="anonymous"></script>
 	
-	<title>쓰잘데기 11.0</title>   
+	<title>쓰잘데기 12.0</title>   
 
 	<script type="text/javascript">
 		var category;
@@ -58,7 +58,11 @@
 			search = data.search;
 
 			if(category == 'WC2022') {
-				writehtml += "<h6 class='border-bottom border-gray py-3 mb-0 font-weight-bold text-primary'><a href='/contents.do?category=socc'>[2022 WORLD CUP]</a></h6>";
+				writehtml += "<h6 class='border-bottom border-gray py-3 mb-0 font-weight-bold text-primary'><a href='/soccerepl.do?category=WC2022'>[2022 WORLD CUP]</a></h6>";
+			} else if(category == 'uefa') {
+				writehtml += "<h6 class='border-bottom border-gray py-3 mb-0 font-weight-bold text-primary'><a href='/soccerepl.do?category=uefa'>[챔피언스 리그]</a></h6>";
+			} else if(category == 'LEE') {
+				writehtml += "<h6 class='border-bottom border-gray py-3 mb-0 font-weight-bold text-primary'><a href='/soccerepl.do?category=LEE'>[이강인]</a></h6>";
 			} else {
 				writehtml += "<h6 class='border-bottom border-gray py-3 mb-0 font-weight-bold text-primary'><a href='/soccerepl.do'>[England Premier League]</a></h6>";
 			}
@@ -125,6 +129,7 @@
 				<li class="nav-item"><a class="nav-link" href="/contents.do?category=recm">추천</a></li>
 				<li class="nav-item"><a class="nav-link" href="/articles.do">썰 게시판</a></li>
 				<li class="nav-item"><a class="nav-link" href="/contents.do?category=best">베스트</a></li>
+				<li class="nav-item"><a class="nav-link" href="/contents.do?category=funp">유머픽</a></li>
 				<li class="nav-item"><a class="nav-link" href="/contents.do?category=xart">조공 모음</a></li>
 				<li class="nav-item"><a class="nav-link" href="/contents.do?category=news">뉴스 모음</a></li>
 				<li class="nav-item"><a class="nav-link" href="/contents.do?category=itct">IT 소식</a></li>
@@ -142,16 +147,16 @@
 	<div class="container my-3 bg-white rounded shadow">
 		<div class="d-flex justify-content-between mb-2 small align-items-center w-100">
 			<div class="btn-group" role="group">
-			<button type="button" class="btn btn-link font-weight-bold text-info" onclick="location.href='/contents.do'">베스트</button>
+			<button type="button" class="btn btn-link font-weight-bold text-info" onclick="location.href='/soccerepl.do'">EPL</button>
 			</div>
 			<div class="btn-group" role="group">
-			<button type="button" class="btn btn-link font-weight-bold text-info" onclick="location.href='/soccerepl.do'">EPL</button>
+			<button type="button" class="btn btn-link font-weight-bold text-info" onclick="location.href='/soccerepl.do?category=uefa'">챔피언스리그</button>
 			</div>
 			<div class="btn-group" role="group">
 			<button type="button" class="btn btn-link font-weight-bold text-info" onclick="location.href='/soccerepl.do?category=LEE'">이강인</button>
 			</div>
 			<div class="btn-group" role="group">
-			<button type="button" class="btn btn-link font-weight-bold text-info" onclick="location.href='/soccerepl.do?category=WC2022'">2022 Worldcup</button>
+			<button type="button" class="btn btn-link font-weight-bold text-info" onclick="location.href='/soccerepl.do?category=WC2022'">월드컵</button>
 			</div>
 		</div>
 	</div>

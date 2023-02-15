@@ -23,7 +23,7 @@
 
 	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3843225232663919" crossorigin="anonymous"></script>
 	
-	<title>쓰잘데기 11.0</title>    
+	<title>쓰잘데기 12.0</title>    
 
 	<script type="text/javascript">
 		var category;
@@ -143,6 +143,7 @@
 				<li class="nav-item"><a class="nav-link" href="/contents.do?category=recm">추천</a></li>
 				<li class="nav-item"><a class="nav-link" href="/articles.do">썰 게시판</a></li>
 				<li class="nav-item"><a class="nav-link" href="/contents.do?category=best">베스트</a></li>
+				<li class="nav-item"><a class="nav-link" href="/contents.do?category=funp">유머픽</a></li>
 				<li class="nav-item"><a class="nav-link" href="/contents.do?category=xart">조공 모음</a></li>
 				<li class="nav-item"><a class="nav-link" href="/contents.do?category=news">뉴스 모음</a></li>
 				<li class="nav-item"><a class="nav-link" href="/contents.do?category=itct">IT 소식</a></li>
@@ -175,7 +176,7 @@
 					<button type="button" class="btn btn-link font-weight-bold text-info" onclick="location.href='/soccerepl.do'">EPL 경기일정</button>
 					</div>
 					<div class="btn-group" role="group">
-					<button type="button" class="btn btn-link font-weight-bold text-info" onclick="location.href='/soccerepl.do?category=LEE'">이강인 마요르카</button>
+					<button type="button" class="btn btn-link font-weight-bold text-info" onclick="location.href='/soccerepl.do?category=uefa'">챔피언스리그</button>
 					</div>					
 				</div>
 			</div>

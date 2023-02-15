@@ -7,6 +7,8 @@ public class CategoryUtils {
             return "추천";
 		} else if (categoryId.equals("board")) {
             return "썰 게시판";
+        } else if (categoryId.equals("funp")) {
+            return "유머픽";
         } else if (categoryId.equals("xart")) {
             return "조공 모음";
         } else if (categoryId.equals("news")) {
