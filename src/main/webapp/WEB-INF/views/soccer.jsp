@@ -63,8 +63,14 @@
 				writehtml += "<h6 class='border-bottom border-gray py-3 mb-0 font-weight-bold text-primary'><a href='/soccerepl.do?category=uefa'>[챔피언스 리그]</a></h6>";
 			} else if(category == 'LEE') {
 				writehtml += "<h6 class='border-bottom border-gray py-3 mb-0 font-weight-bold text-primary'><a href='/soccerepl.do?category=LEE'>[이강인]</a></h6>";
+			} else if(category == 'spain') {
+				writehtml += "<h6 class='border-bottom border-gray py-3 mb-0 font-weight-bold text-primary'><a href='/soccerepl.do?category=spain'>[프리메라리그]</a></h6>";				
+			} else if(category == 'GBL') {
+				writehtml += "<h6 class='border-bottom border-gray py-3 mb-0 font-weight-bold text-primary'><a href='/soccerepl.do?category=GBL'>[분데스리가]</a></h6>";				
+			} else if(category == 'EPL') {
+				writehtml += "<h6 class='border-bottom border-gray py-3 mb-0 font-weight-bold text-primary'><a href='/soccerepl.do?category=EPL'>[프리미어리그]</a></h6>";
 			} else {
-				writehtml += "<h6 class='border-bottom border-gray py-3 mb-0 font-weight-bold text-primary'><a href='/soccerepl.do'>[England Premier League]</a></h6>";
+				writehtml += "<h6 class='border-bottom border-gray py-3 mb-0 font-weight-bold text-primary'><a href='/soccerepl.do'>[유럽 축구 일정]</a></h6>";
 			}
             
             for(i = 0; i < data.contentList.length; i++) {
@@ -127,19 +133,20 @@
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item"><a class="nav-link" href="/contents.do?category=recm">추천</a></li>
-				<li class="nav-item"><a class="nav-link" href="/articles.do">썰 게시판</a></li>
+				<li class="nav-item"><a class="nav-link" href="/articles.do">썰게</a></li>
 				<li class="nav-item"><a class="nav-link" href="/contents.do?category=best">베스트</a></li>
-				<li class="nav-item"><a class="nav-link" href="/contents.do?category=funp">유머픽</a></li>
-				<li class="nav-item"><a class="nav-link" href="/contents.do?category=xart">조공 모음</a></li>
-				<li class="nav-item"><a class="nav-link" href="/contents.do?category=news">뉴스 모음</a></li>
+				<li class="nav-item"><a class="nav-link" href="/soccerepl.do">유럽축구일정</a></li>
+				<li class="nav-item"><a class="nav-link" href="/contents.do?category=funp">유머모음</a></li>
+				<li class="nav-item"><a class="nav-link" href="/contents.do?category=xart">조공모음</a></li>
+				<li class="nav-item"><a class="nav-link" href="/contents.do?category=news">뉴스모음</a></li>
 				<li class="nav-item"><a class="nav-link" href="/contents.do?category=itct">IT 소식</a></li>
-				<li class="nav-item"><a class="nav-link" href="/contents.do?category=movi">영화 소식</a></li>
-				<li class="nav-item"><a class="nav-link" href="/contents.do?category=socc">축구 소식</a></li>
-				<li class="nav-item"><a class="nav-link" href="/contents.do?category=base">야구 소식</a></li>
-				<li class="nav-item"><a class="nav-link" href="/contents.do?category=girl">여성 시대</a></li>
-				<li class="nav-item"><a class="nav-link" href="/contents.do?category=shop">쇼핑 모음</a></li>
-				<li class="nav-item"><a class="nav-link" href="/contents.do?category=stoc">주식 추천</a></li>
-				<li class="nav-item"><a class="nav-link" href="/contents.do?category=devp">개발자</a></li>
+				<li class="nav-item"><a class="nav-link" href="/contents.do?category=movi">영화소식</a></li>
+				<li class="nav-item"><a class="nav-link" href="/contents.do?category=socc">축구소식</a></li>
+				<li class="nav-item"><a class="nav-link" href="/contents.do?category=base">야구소식</a></li>
+				<li class="nav-item"><a class="nav-link" href="/contents.do?category=girl">여성시대</a></li>
+				<li class="nav-item"><a class="nav-link" href="/contents.do?category=shop">쇼핑모음</a></li>
+				<li class="nav-item"><a class="nav-link" href="/contents.do?category=stoc">주식소식</a></li>
+				<li class="nav-item"><a class="nav-link" href="/contents.do?category=devp">개발모음</a></li>
 			</ul>			
 		</div>
 	</nav>
@@ -147,16 +154,16 @@
 	<div class="container my-3 bg-white rounded shadow">
 		<div class="d-flex justify-content-between mb-2 small align-items-center w-100">
 			<div class="btn-group" role="group">
-			<button type="button" class="btn btn-link font-weight-bold text-info" onclick="location.href='/soccerepl.do'">EPL</button>
+			<button type="button" class="btn btn-link font-weight-bold text-info" onclick="location.href='/contents.do'">베스트</button>
 			</div>
 			<div class="btn-group" role="group">
-			<button type="button" class="btn btn-link font-weight-bold text-info" onclick="location.href='/soccerepl.do?category=uefa'">챔피언스리그</button>
+			<button type="button" class="btn btn-link font-weight-bold text-info" onclick="location.href='/soccerepl.do?category=EPL'">EPL</button>
 			</div>
 			<div class="btn-group" role="group">
-			<button type="button" class="btn btn-link font-weight-bold text-info" onclick="location.href='/soccerepl.do?category=LEE'">이강인</button>
+			<button type="button" class="btn btn-link font-weight-bold text-info" onclick="location.href='/soccerepl.do?category=spain'">스페인</button>
 			</div>
 			<div class="btn-group" role="group">
-			<button type="button" class="btn btn-link font-weight-bold text-info" onclick="location.href='/soccerepl.do?category=WC2022'">월드컵</button>
+			<button type="button" class="btn btn-link font-weight-bold text-info" onclick="location.href='/soccerepl.do?category=GBL'">독일</button>
 			</div>
 		</div>
 	</div>

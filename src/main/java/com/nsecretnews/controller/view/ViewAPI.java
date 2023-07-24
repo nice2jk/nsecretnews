@@ -70,7 +70,7 @@ public class ViewAPI {
 
 	@GetMapping("/soccerepl.do")
 	public String getSoccerEpl(
-			@RequestParam(value="category", required=true, defaultValue="EPL") String category,
+			@RequestParam(value="category", required=true, defaultValue="all") String category,
 			@RequestParam(value="offset", required=true, defaultValue="0") int offset,
 			@RequestParam(value="search", required=false) String search,
 			Model model) {

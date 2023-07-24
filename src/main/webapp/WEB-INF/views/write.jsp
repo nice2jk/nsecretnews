@@ -79,19 +79,20 @@
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item"><a class="nav-link" href="/contents.do?category=recm">추천</a></li>
-				<li class="nav-item"><a class="nav-link" href="/articles.do">썰 게시판</a></li>
+				<li class="nav-item"><a class="nav-link" href="/articles.do">썰게</a></li>
 				<li class="nav-item"><a class="nav-link" href="/contents.do?category=best">베스트</a></li>
-				<li class="nav-item"><a class="nav-link" href="/contents.do?category=funp">유머픽</a></li>
-				<li class="nav-item"><a class="nav-link" href="/contents.do?category=xart">조공 모음</a></li>
-				<li class="nav-item"><a class="nav-link" href="/contents.do?category=news">뉴스 모음</a></li>
+				<li class="nav-item"><a class="nav-link" href="/soccerepl.do">유럽축구일정</a></li>
+				<li class="nav-item"><a class="nav-link" href="/contents.do?category=funp">유머모음</a></li>
+				<li class="nav-item"><a class="nav-link" href="/contents.do?category=xart">조공모음</a></li>
+				<li class="nav-item"><a class="nav-link" href="/contents.do?category=news">뉴스모음</a></li>
 				<li class="nav-item"><a class="nav-link" href="/contents.do?category=itct">IT 소식</a></li>
-				<li class="nav-item"><a class="nav-link" href="/contents.do?category=movi">영화 소식</a></li>
-				<li class="nav-item"><a class="nav-link" href="/contents.do?category=socc">축구 소식</a></li>
-				<li class="nav-item"><a class="nav-link" href="/contents.do?category=base">야구 소식</a></li>
-				<li class="nav-item"><a class="nav-link" href="/contents.do?category=girl">여성 시대</a></li>
-				<li class="nav-item"><a class="nav-link" href="/contents.do?category=shop">쇼핑 모음</a></li>
-				<li class="nav-item"><a class="nav-link" href="/contents.do?category=stoc">주식 추천</a></li>
-				<li class="nav-item"><a class="nav-link" href="/contents.do?category=devp">개발자</a></li>
+				<li class="nav-item"><a class="nav-link" href="/contents.do?category=movi">영화소식</a></li>
+				<li class="nav-item"><a class="nav-link" href="/contents.do?category=socc">축구소식</a></li>
+				<li class="nav-item"><a class="nav-link" href="/contents.do?category=base">야구소식</a></li>
+				<li class="nav-item"><a class="nav-link" href="/contents.do?category=girl">여성시대</a></li>
+				<li class="nav-item"><a class="nav-link" href="/contents.do?category=shop">쇼핑모음</a></li>
+				<li class="nav-item"><a class="nav-link" href="/contents.do?category=stoc">주식소식</a></li>
+				<li class="nav-item"><a class="nav-link" href="/contents.do?category=devp">개발모음</a></li>
 			</ul>	
 		</div>
 	</nav>

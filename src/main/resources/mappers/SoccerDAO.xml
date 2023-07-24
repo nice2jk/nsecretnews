@@ -10,11 +10,20 @@
 	</select>
 
     <select id="getSoccer" parameterType="java.util.HashMap" resultType="java.util.HashMap">
-		SELECT id, league, teama, score, teamb, mtime FROM smatch WHERE league = #{category}
-		<if test="search != null and search != ''">
-		
-			AND (teama LIKE '%${search}%' OR teamb LIKE '%${search}%')
-		</if>
+		SELECT id, league, teama, score, teamb, mtime FROM smatch 
+		<choose>
+			<when test="category != 'all'">
+				WHERE league = #{category}
+				<if test="search != null and search != ''">		
+					AND (teama LIKE '%${search}%' OR teamb LIKE '%${search}%')
+				</if>
+			</when>
+			<otherwise>
+				<if test="search != null and search != ''">		
+					WHERE (teama LIKE '%${search}%' OR teamb LIKE '%${search}%')
+				</if>
+			</otherwise>
+		</choose>
         ORDER BY mtime DESC 
 		<choose>
 			<when test="offset != null and offset > 0">

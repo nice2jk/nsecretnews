@@ -5,6 +5,7 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -55,7 +56,7 @@ public class ContentAPI {
 	@GetMapping("/soccerepl")
 	@ResponseBody
 	public HashMap<String, Object> getSoccerEpl(
-			@RequestParam(value="category", required=true, defaultValue="EPL") String category,
+			@RequestParam(value="category", required=true, defaultValue="all") String category,
 			@RequestParam(value="offset", required=true, defaultValue="0") int offset,
 			@RequestParam(value="search", required=false) String search) {
 		
