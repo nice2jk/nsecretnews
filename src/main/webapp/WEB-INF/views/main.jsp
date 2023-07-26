@@ -71,13 +71,14 @@
 		</div>
 	</div> -->
 
-	<div class="container my-3 bg-white rounded shadow">
-		<form class="form-inline justify-content-center" action="http://www.google.co.kr/search" target="_blank">	  
+	<div class="container my-3 bg-white rounded shadow ">
+		<!-- <form class="form-inline justify-content-center" action="http://www.google.co.kr/search" target="_blank">	  
 			<div class="form-group mx-sm-3 mb-2 mr-2">
 			<input type=text name=q maxlength=255 class="form-control" placeholder="Google Search" required />  
 			</div>
 			<input type=submit class="btn btn-primary mb-2" value="검색" />
-		</form>
+		</form> -->
+		<a href="https://play.google.com/store/apps/details?id=com.secretnews" target="_blank"><h6 class='py-3 mb-0 font-weight-bold text-primary '><img src="/images/appic.png" alt="..." class="img-thumbnail mr-2">쓰잘데기 앱! 플레이스토어에서 만나요!</h6></a>
 	</div>
 
 	<!-- <div class="container my-3 bg-white rounded shadow">
